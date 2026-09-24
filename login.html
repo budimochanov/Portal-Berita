@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk - Portal Berita RPL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+
+<div class="auth-card">
+  <a href="index.html" class="auth-logo">
+    <span class="logo-mark">BR</span>
+    <span>Portal Berita RPL</span>
+  </a>
+
+  <h1>Masuk ke Portal</h1>
+  <p class="auth-sub">Gunakan email sekolah yang sudah terdaftar.</p>
+
+  <form id="login-form">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="nama@sekolah.sch.id"
+           required autocomplete="email">
+
+    <button type="submit" id="btn-login" class="btn-primary">Masuk</button>
+  </form>
+
+  <div id="message" class="message"></div>
+
+  <p class="auth-footer">
+    Belum punya akun? Hubungi admin redaksi.
+  </p>
+  <p class="auth-footer">
+    <a href="index.html">← Kembali ke beranda</a>
+  </p>
+</div>
+
+<script src="form.js"></script>
+</body>
+</html>
