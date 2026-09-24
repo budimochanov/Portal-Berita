@@ -162,3 +162,32 @@ function buildCard(a) {
 function updateTicker(a) {
   document.getElementById('ticker-content').textContent = a.judul;
 }
+
+function listArtikel(p) {
+  var rows = sheetToObjects('artikel');
+  var filtered = [];
+  for (var i = 0; i < rows.length; i++) {
+    if (rows[i].deleted === true) continue;
+    if (p.status && rows[i].status !== p.status) continue;
+    if (p.kategori && rows[i].id_kategori !== p.kategori) continue;
+    if (p.id_penulis && rows[i].id_penulis !== p.id_penulis) continue;
+    filtered.push(rows[i]);
+  }
+
+  filtered.sort(function (a, b) {
+    var da = new Date(a.tgl_tayang || a.tgl_buat);
+    var db = new Date(b.tgl_tayang || b.tgl_buat);
+    return db - da;
+  });
+
+  var limit = parseInt(p.limit, 10) || 10;
+  var page = parseInt(p.page, 10) || 1;
+  var start = (page - 1) * limit;
+
+  return {
+    success: true,
+    total: filtered.length,
+    page: page,
+    data: filtered.slice(start, start + limit)
+  };
+}
