@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tulis Artikel - Portal Berita RPL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">BR</span>
+      <span>Portal Berita RPL</span>
+    </a>
+    <div class="user-info">
+      <span id="user-name">...</span>
+      <button id="btn-logout" class="btn-link">Keluar</button>
+    </div>
+  </div>
+</header>
+
+<main class="container main-content">
+  <div class="page-head">
+    <h1>Tulis Artikel Baru</h1>
+    <p>Artikel akan disimpan sebagai <strong>draft</strong> dan menunggu review editor sebelum tayang.</p>
+  </div>
+
+  <form id="artikel-form" class="form-artikel">
+
+    <div class="form-group">
+      <label for="judul">Judul <span class="req">*</span></label>
+      <input type="text" id="judul" maxlength="80" required
+             placeholder="Contoh: Belajar HTML Dasar untuk Pemula">
+      <small><span id="judul-count">0</span>/80 karakter</small>
+    </div>
+
+    <div class="form-group">
+      <label for="slug">Slug URL <span class="req">*</span></label>
+      <input type="text" id="slug" required
+             placeholder="belajar-html-dasar-untuk-pemula">
+      <small>Huruf kecil, angka, dan tanda hubung. Akan jadi bagian URL.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="id_kategori">Kategori <span class="req">*</span></label>
+      <select id="id_kategori" required>
+        <option value="">-- Pilih kategori --</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ringkasan">Ringkasan <span class="req">*</span></label>
+      <textarea id="ringkasan" rows="3" maxlength="200" required
+                placeholder="Ringkasan singkat 1-2 kalimat..."></textarea>
+      <small><span id="ringkasan-count">0</span>/200 karakter</small>
+    </div>
+
+    <div class="form-group">
+      <label for="isi">Isi Artikel <span class="req">*</span></label>
+      <textarea id="isi" rows="12" required
+                placeholder="Tulis isi artikel di sini. Boleh pakai tag HTML sederhana seperti <p>, <b>, <i>."></textarea>
+      <small>Minimal 300 karakter. Boleh pakai HTML sederhana.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type="text" id="tags"
+             placeholder="html, css, pemula (pisah dengan koma)">
+      <small>Maksimal 5 tag, pisah dengan koma.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="thumbnail_url">URL Thumbnail</label>
+      <input type="url" id="thumbnail_url"
+             placeholder="https://drive.google.com/...">
+      <small>Opsional. Rasio 16:9 disarankan.</small>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" id="langsung_tayang">
+        Langsung tayangkan (hanya untuk editor/admin)
+      </label>
+    </div>
+
+    <div id="form-message" class="message"></div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" onclick="location.href='index.html'">
+        Batal
+      </button>
+      <button type="submit" id="btn-submit" class="btn-primary">
+        Simpan Artikel
+      </button>
+    </div>
+
+  </form>
+</main>
+
+<script src="form.js"></script>
+</body>
+</html>
